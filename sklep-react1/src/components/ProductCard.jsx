@@ -1,7 +1,14 @@
 import { useState } from 'react'
 
-function ProductCard({ nazwa = 'Produkt', cena = 0, staraCena, zdjecie, kategoria = 'Ogólna' }) {
-  const [dodano, setDodano] = useState(false)
+function ProductCard({
+  id,
+  nazwa = 'Produkt',
+  cena = 0,
+  staraCena,
+  zdjecie,
+  kategoria = 'Wszystkie',
+  dodajDoKoszyka
+}) {
   const [polubione, setPolubione] = useState(false)
   const [licznik, setLicznik] = useState(0)
 
@@ -18,8 +25,8 @@ function ProductCard({ nazwa = 'Produkt', cena = 0, staraCena, zdjecie, kategori
   const cenaLiczba = Number(cena) || 0
   const staraCenaLiczba = staraCena != null ? Number(staraCena) : null
 
-  const obrazek = zdjecie && zdjecie.trim() !== '' 
-    ? zdjecie 
+  const obrazek = zdjecie && zdjecie.trim() !== ''
+    ? zdjecie
     : 'https://via.assets.so/img.jpg?w=200&h=200&tc=gray&bg=cecece&t=Brak+zdjęcia'
 
   return (
@@ -30,19 +37,17 @@ function ProductCard({ nazwa = 'Produkt', cena = 0, staraCena, zdjecie, kategori
       {staraCenaLiczba !== null && Number.isFinite(staraCenaLiczba) && (
         <p className="stara-cena">Cena sprzed 30 dni: {staraCenaLiczba.toFixed(2)} zł</p>
       )}
-  
 
       <p>Kategoria: {kategoria}</p>
 
-      {!dodano ? (
-        <button className="add-btn" onClick={() => setDodano(true)}>
+      <div className="button-group">
+        <button
+          className="add-btn"
+          onClick={() => dodajDoKoszyka({ id, nazwa, cena, staraCena, zdjecie, kategoria })}
+        >
           Dodaj do koszyka
         </button>
-      ) : (
-        <button className="remove-btn" onClick={() => setDodano(false)}>
-          Usuń z koszyka
-        </button>
-      )}
+      </div>
 
       <button className="heart-button" onClick={kliknijSerce}>
         {polubione ? '♥' : '♡'} {licznik}

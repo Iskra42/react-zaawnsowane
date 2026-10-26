@@ -125,3 +125,43 @@ button{
   border: 1px solid #ccc;
   background-color: yellowgreen;
 }
+
+.cart{
+  background-color: white;
+  color: black;
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  } 
+  .cart button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #287a5b;
+    color: white;
+    cursor: pointer;
+  }
+  .cart button:hover {
+    background-color: #1e5c43;
+  }
+  .cart h3{
+    text-align:right;
+    margin-top: 20px;
+    color: black; 
+  }

@@ -20,4 +20,8 @@ export const produkty = [
   { id: 8, nazwa: 'Mata do jogi i ćwiczeń', cena: 89.00, staraCena: 119.00, zdjecie: mataImg, kategoria: 'sport' },
   { id: 9, nazwa: 'gruszka', cena: 4.50, staraCena: 5.99, zdjecie: gruszkaImg, kategoria: 'eco' },
   { id: 10, nazwa: 'Laptop Pro 16', cena: 8999.00, staraCena: 9499.00, zdjecie: laptopImg, kategoria: 'elektronika' },
-]
+];
+localStorage.setItem('koszyk', JSON.stringify(produkty));
+
+const zapisane = JSON.parse(localStorage.getItem('koszyk'));
+console.log(zapisane);
